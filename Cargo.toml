@@ -1,0 +1,15 @@
+[package]
+name = "ffmetadata"
+version = "0.1.0"
+edition = "2021"
+authors = ["lilydjwg <lilydjwg@gmail.com>"]
+description = "A simple parser for ffmpeg's ffmetadata format"
+repository = "https://github.com/lilydjwg/ffmetadata"
+license = "BSD-3-Clause"
+keywords = ["ffmpeg", "metadata"]
+categories = ["multimedia", "parser-implementations"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+nom = "7.1.3"
