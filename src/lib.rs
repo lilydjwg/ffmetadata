@@ -59,12 +59,17 @@ fn header(input: &str) -> IResult<&str, ()> {
 }
 
 fn string(input: &str) -> IResult<&str, String> {
-  many0(
+  fold_many0(
     alt((
       preceded(char('\\'), one_of("=;#\\\n")),
       none_of("=;#\\\n"),
-    ))
-  ).map(|v| v.into_iter().collect()).parse(input)
+    )),
+    String::new,
+    |mut acc: String, c: char| {
+        acc.push(c);
+        acc
+    }
+  ).parse(input)
 }
 
 fn kv(input: &str) -> IResult<&str, KV> {
